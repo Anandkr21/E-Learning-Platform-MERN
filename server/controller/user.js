@@ -22,7 +22,7 @@ module.exports = {
         }
     },
 
-    register: async (req, res) => {
+    userRegister: async (req, res) => {
         const { name, email, password, avatar, role } = req.body;
         try {
             const existUser = await User.findOne({ email });
@@ -59,7 +59,7 @@ module.exports = {
         }
     },
 
-    logIn: async (req, res) => {
+    userLogin: async (req, res) => {
         try {
             const { email, password } = req.body;
             const user = await User.findOne({ email })
