@@ -1,12 +1,13 @@
-const { connection } = require('mongoose');
+const { connection } = require('./config/db');
 const { app } = require('./app');
-const { allcourse } = require('./controller/courses');
-const { alluser } = require('./controller/user');
+const { userRouter } = require('./routes/userRoute');
+const { courseRouter } = require('./routes/courseRoute');
+
 
 const Port = process.env.PORT || 8080;
 
-app.use('/user', alluser);
-app.use('/course', allcourse);
+app.use('/user', userRouter);
+app.use('/course', courseRouter);
 
 app.listen(Port, async () => {
     try {

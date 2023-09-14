@@ -1,5 +1,5 @@
 module.exports ={
-    allcourse: async(req,res) =>{
+    getAllCourse: async(req,res) =>{
         res.send('hello')
     }
 }

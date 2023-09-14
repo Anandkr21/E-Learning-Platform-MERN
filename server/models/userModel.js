@@ -8,11 +8,9 @@ const userSchema = mongoose.Schema({
     email: {
         type: String,
         required: true,
-        unique: true
     },
     password: {
         type: String,
-        required: true,
     },
     avatar: {
         type: String
@@ -22,6 +20,12 @@ const userSchema = mongoose.Schema({
         enum: ['Student', 'Instructor', 'Admin'],
         default: 'Student'
     },
+    enrolledCourses: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Course', // Reference to the Course model if you have one
+        },
+    ],
     createdTime: {
         type: Date,
         default: Date.now
